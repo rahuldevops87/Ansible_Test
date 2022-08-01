@@ -1,0 +1,4 @@
+- name: Roles Demo
+  hosts: all
+  roles:
+    - install-vim

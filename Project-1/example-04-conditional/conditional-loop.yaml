@@ -1,0 +1,20 @@
+- name: Install VIM
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install {{ item }} on Debian
+      apt:
+        name: "{{item}}"
+        state: absent
+      when: ansible_os_family == "Debian"
+
+    - name: Install {{ item }} on RedHat
+      yum:
+        name: "{{item}}"
+        state: absent
+      when: ansible_os_family == "RedHat" or
+            ansible_os_family == "SUSE"
+
+      loop:
+        - httpd
+        - mysql

@@ -1,0 +1,11 @@
+- name: Command Play
+  hosts: all
+  tasks:
+    - name: Execute the date command
+      command: date
+
+    - name: Display hosts file
+      command: cat /etc/hosts
+
+    - name: Display hosts file with chdir
+      command: cat hosts chdir=/etc

@@ -1,0 +1,14 @@
+- name: Testing loops
+  hosts: all
+  become: yes
+  tasks:
+    - vars:
+        item: joe
+      user:
+        name: "{{item}}"
+        state: present
+    - vars:
+        item: george
+      user:
+        name: "{{item}}"
+        state: present

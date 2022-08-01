@@ -1,0 +1,5 @@
+- name: Command Play
+  hosts: all
+  tasks:
+    - name: Execute the date command
+      command: mkdir /tmp creates=/tmp

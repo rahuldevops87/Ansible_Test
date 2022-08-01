@@ -1,0 +1,16 @@
+- name: Install VIM
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install VIM on Debian
+      apt:
+        name: vim
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Install VIM on RedHat
+      yum:
+        name: vim
+        state: present
+      when: ansible_os_family == "RedHat" or
+            ansible_os_family == "SUSE"

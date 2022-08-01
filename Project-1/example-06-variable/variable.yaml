@@ -1,0 +1,25 @@
+- name: Varibale Demo
+  hosts: all
+  vars:
+    URL: global.google.com
+  vars_prompt:
+    - name: URL
+      prompt: Enter the URL
+      private: no
+  tasks:
+    - name: Printing the Global variable
+      debug:
+        msg: Hello, the URL is {{URL}} and hostname is {{ansible_hostname}}
+      tags: important
+      
+    - name: Printing the Local variable
+      vars:
+        URL: local.google.com
+      debug:
+        msg: Hello, the URL is {{URL}} and hostname is {{ansible_hostname}}
+
+    - name: Printing the CLI variable
+      vars:
+        CLI_URL: command.google.com
+      debug:
+        msg: Hello, the URL is {{CLI_URL}} and hostname is {{ansible_hostname}}

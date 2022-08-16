@@ -2,4 +2,4 @@
   become: yes
   package:
     name: vim
-    state: absent
+    state: present
